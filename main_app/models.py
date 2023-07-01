@@ -9,6 +9,7 @@ class Crystal(models.Model):
     usual_color=models.CharField(max_length=250)
     img=models.CharField(max_length=5000)
     finding_place=models.CharField(max_length=9000)
+    added_on=models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name = "crystal"
