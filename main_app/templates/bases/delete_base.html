@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Are you sure you want to delete {% block deleting_item_name %}{% endblock deleting_item_name %}?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="buttons">
+            <input type="submit" value="Confirm"/>
+        </div>
+    </form>
+    {% block extra_controls %}{% endblock extra_controls %}
+{% endblock content %}
