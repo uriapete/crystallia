@@ -5,10 +5,10 @@ from django.db import models
 class Crystal(models.Model):
 
     name=models.CharField(max_length=250)
-    mohs_hardness=models.DecimalField(max_digits=3,decimal_places=2)
-    usual_color=models.CharField(max_length=250)
-    img=models.CharField(max_length=5000)
-    bio=models.CharField(max_length=9000)
+    mohs_hardness=models.DecimalField(max_digits=3,decimal_places=2,blank=True,null=True)
+    usual_color=models.CharField(max_length=250,blank=True,null=True)
+    img=models.CharField(max_length=5000,blank=True,null=True)
+    bio=models.CharField(max_length=9000,blank=True,null=True)
     added_on=models.DateTimeField(auto_now_add=True)
 
     class Meta:
