@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'crystallia.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.posgresql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'crystallia',
     }
 }
