@@ -1,5 +1,5 @@
 from django.db import models
-# from django.urls import reverse
+from django.urls import reverse
 
 # Create your models here.
 class Crystal(models.Model):
@@ -19,5 +19,5 @@ class Crystal(models.Model):
     def __str__(self):
         return self.name
 
-    # def get_absolute_url(self):
-    #     return reverse("crystal_detail", kwargs={"pk": self.pk})
+    def get_absolute_url(self):
+        return reverse("crystal_detail", kwargs={"pk": self.pk})
