@@ -1,8 +1,14 @@
 {% extends 'bases/base.html' %}
 {% block content %}
     <h1 class="crys-name">{{crystal.name}}</h1>
-    <h3 class="crys-mohs">Mohs Hardness: {{crystal.mohs_hardness}}</h3>
-    <h3 class="crys-color">Usual color: {{crystal.usual_color}}</h3>
-    <img src="{{crystal.img}}" alt="" class="chrys-img">
+    {% if crystal.mohs_hardness != None %}
+        <h3 class="crys-mohs">Mohs Hardness: {{crystal.mohs_hardness}}</h3>
+    {% endif %}
+    {% if crystal.usual_color != None %}
+        <h3 class="crys-color">Usual color: {{crystal.usual_color}}</h3>
+    {% endif %}
+    {% if crystal.img != None %}
+        <img src="{{crystal.img}}" alt="" class="chrys-img">
+    {% endif %}
     <p class="chrys-bio">{{crystal.bio}}</p>
 {% endblock content %}
