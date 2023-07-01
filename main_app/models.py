@@ -11,8 +11,8 @@ class Crystal(models.Model):
     finding_place=models.CharField(max_length=9000)
 
     class Meta:
-        verbose_name = _("crystal")
-        verbose_name_plural = _("crystals")
+        verbose_name = "crystal"
+        verbose_name_plural = "crystals"
 
     def __str__(self):
         return self.name
