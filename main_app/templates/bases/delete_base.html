@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Are you sure you want to delete {% block deleting_item_name %}{% endblock deleting_item_name %}?</h1>
+    {% block delete_title %}{% endblock delete_title %}
     <form method="post">
         {% csrf_token %}
         <div class="buttons">
