@@ -3,7 +3,9 @@
 {% block content %}
     <h1>Crystals</h1>
     {% for crystal in crystals %}
-        <h3>{{crystal.name}}</h3>
+        <a href="{{crystal.get_absolute_url}}">
+            <h3>{{crystal.name}}</h3>
+        </a>
         {%empty%}
             <h3>No crystals :(</h3>
     {% endfor %}
