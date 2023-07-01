@@ -8,7 +8,7 @@ class Crystal(models.Model):
     mohs_hardness=models.DecimalField(max_digits=3,decimal_places=2)
     usual_color=models.CharField(max_length=250)
     img=models.CharField(max_length=5000)
-    finding_place=models.CharField(max_length=9000)
+    bio=models.CharField(max_length=9000)
     added_on=models.DateTimeField(auto_now_add=True)
 
     class Meta:
