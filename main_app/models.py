@@ -14,6 +14,7 @@ class Crystal(models.Model):
     class Meta:
         verbose_name = "crystal"
         verbose_name_plural = "crystals"
+        ordering=['name']
 
     def __str__(self):
         return self.name
