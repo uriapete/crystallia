@@ -33,8 +33,8 @@ class Crystal(models.Model):
     found_on=models.DateField(null=True,blank=True)
 
     class Meta:
-        verbose_name = _("crystal")
-        verbose_name_plural = _("crystals")
+        verbose_name = "crystal"
+        verbose_name_plural = "crystals"
 
     def __str__(self):
         return f"{self.type.name} {self.pk}"
