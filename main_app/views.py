@@ -1,38 +1,38 @@
 from django.shortcuts import render
 from django.views.generic import ListView,CreateView,DetailView,UpdateView,DeleteView
-from main_app.models import Crystal
+from main_app.models import CrystalType
 
 # Create your views here.
-class CrystalListView(ListView):
-    model = Crystal
-    template_name = "crystal/crystal_list.html"
+class CrystalTypeListView(ListView):
+    model = CrystalType
+    template_name = "crystal_type/crystal_type_list.html"
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["crystals"] = Crystal.objects.all()
+        context["crystaltypes"] = CrystalType.objects.all()
         return context
     
     
-class CrystalCreateView(CreateView):
-    model = Crystal
+class CrystalTypeCreateView(CreateView):
+    model = CrystalType
     fields=['name','mohs_hardness','usual_color','img','bio']
-    template_name = "crystal/crystal_create.html"
+    template_name = "crystal_type/crystal_type_create.html"
     
     
-class CrystalDetailView(DetailView):
-    model = Crystal
-    template_name = "crystal/crystal_detail.html"
+class CrystalTypeDetailView(DetailView):
+    model = CrystalType
+    template_name = "crystal_type/crystal_type_detail.html"
     
     
-class CrystalUpdateView(UpdateView):
-    model = Crystal
+class CrystalTypeUpdateView(UpdateView):
+    model = CrystalType
     fields=['name','mohs_hardness','usual_color','img','bio']
-    template_name = "crystal/crystal_update.html"
+    template_name = "crystal_type/crystal_type_update.html"
     
     
-class CrystalDeleteView(DeleteView):
-    model = Crystal
-    template_name = "crystal/crystal_delete.html"
-    success_url="/crystals"
+class CrystalTypeDeleteView(DeleteView):
+    model = CrystalType
+    template_name = "crystal_type/crystal_type_delete.html"
+    success_url="/crystal_types"
 
 

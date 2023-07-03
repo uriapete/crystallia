@@ -1,0 +1,16 @@
+{% extends 'bases/base.html' %}
+{% block content %}
+    <h1 class="crys-name">{{crystaltype.name}}</h1>
+    <a href="{{crystaltype.get_absolute_url}}update">Update Crystal</a>
+    <a href="{{crystaltype.get_absolute_url}}delete">Delete Crystal</a>
+    {% if crystaltype.mohs_hardness != None %}
+        <h3 class="crys-mohs">Mohs Hardness: {{crystaltype.mohs_hardness}}</h3>
+    {% endif %}
+    {% if crystaltype.usual_color != None %}
+        <h3 class="crys-color">Usual color: {{crystaltype.usual_color}}</h3>
+    {% endif %}
+    {% if crystaltype.img != None %}
+        <img src="{{crystaltype.img}}" alt="" class="chrys-img">
+    {% endif %}
+    <p class="chrys-bio">{{crystaltype.bio}}</p>
+{% endblock content %}
