@@ -97,16 +97,13 @@ else:
         conn_max_age=600,
         conn_health_checks=True,
     )
-    
-print(f"DEBUG: {DEBUG}")
-print(f"database: {database}")
 
 DATABASES = {
-    # 'default':database,
-      'default': dj_database_url.config(
-        conn_max_age=600,
-        conn_health_checks=True,
-    ),
+    'default':database,
+    #   'default': dj_database_url.config(
+    #     conn_max_age=600,
+    #     conn_health_checks=True,
+    # ),
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
     #     'NAME': 'crystallia',
