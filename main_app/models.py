@@ -46,6 +46,7 @@ class Collection(models.Model):
 
     title=models.CharField(max_length=500)
     crystals=models.ManyToManyField(Crystal)
+    added_on=models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name = "collection"
