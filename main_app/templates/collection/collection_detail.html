@@ -1,0 +1,16 @@
+{% extends 'bases/base.html' %}
+{% block content %}
+    <h1 class="col-name">Collection - {{collection.title}}</h1>
+    <a href="{{collection.get_absolute_url}}update">Update Collection</a>
+    <a href="{{collection.get_absolute_url}}delete">Delete Collection</a>
+    {% for crystal in collection.crystals.all %}
+        <a href="{{crystal.get_absolute_url}}">
+            <h3>{{crystal.type.name}}</h3>
+        </a>
+        {%empty%}
+            <h3>No crystals :(</h3>
+    {% endfor %}
+    {% if collection.bio != None %}
+        <p>{{collection.bio}}</p>
+    {% endif %}
+{% endblock content %}

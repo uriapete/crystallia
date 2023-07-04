@@ -1,0 +1,12 @@
+{% extends 'bases/base.html' %}
+
+{% block content %}
+    <h1>Collections</h1>
+    {% for collection in collections %}
+        <a href="{{collection.get_absolute_url}}">
+            <h3>{{collection.title}}</h3>
+        </a>
+        {%empty%}
+            <h3>No collections :(</h3>
+    {% endfor %}
+{% endblock content %}
