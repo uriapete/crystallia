@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.views.generic import ListView,CreateView,DetailView,UpdateView,DeleteView,RedirectView
-from main_app.models import CrystalType
+from main_app.models import CrystalType,Crystal
 
 # Create your views here.
 
 class Home(RedirectView):
     query_string=True
     pattern_name="crystal_type_list"
+
 
 class CrystalTypeListView(ListView):
     model = CrystalType
@@ -16,7 +17,6 @@ class CrystalTypeListView(ListView):
         context = super().get_context_data(**kwargs)
         context["crystaltypes"] = CrystalType.objects.all()
         return context
-    
     
 class CrystalTypeCreateView(CreateView):
     model = CrystalType
@@ -39,5 +39,37 @@ class CrystalTypeDeleteView(DeleteView):
     model = CrystalType
     template_name = "crystal_type/crystal_type_delete.html"
     success_url="/crystal_types"
+    
+    
+class CrystalListView(ListView):
+    model = Crystal
+    template_name = "crystal/crystal_list.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["crystals"] = Crystal.objects.all()
+        return context
+    
+class CrystalCreateView(CreateView):
+    model = Crystal
+    fields=['type','mohs_hardness','color','img','summary','found_on']
+    template_name = "crystal/crystal_create.html"
+    
+    
+class CrystalDetailView(DetailView):
+    model = Crystal
+    template_name = "crystal/crystal_detail.html"
+    
+    
+class CrystalUpdateView(UpdateView):
+    model = Crystal
+    fields=['type','mohs_hardness','color','img','summary','found_on']
+    template_name = "crystal/crystal_update.html"
+    
+    
+class CrystalDeleteView(DeleteView):
+    model = Crystal
+    template_name = "crystal/crystal_delete.html"
+    success_url="/crystals"
 
 
