@@ -1,0 +1,12 @@
+{% extends 'bases/base.html' %}
+
+{% block content %}
+    <h1>Crystals</h1>
+    {% for crystal in crystals %}
+        <a href="{{crystal.get_absolute_url}}">
+            <h3>{{crystal.type.name}}</h3>
+        </a>
+        {%empty%}
+            <h3>No crystals :(</h3>
+    {% endfor %}
+{% endblock content %}
