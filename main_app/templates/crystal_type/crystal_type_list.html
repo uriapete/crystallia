@@ -1,7 +1,7 @@
 {% extends 'bases/base.html' %}
 
 {% block content %}
-    <h1>Crystals</h1>
+    <h1>Crystal Types</h1>
     {% for crystaltype in crystaltypes %}
         <a href="{{crystaltype.get_absolute_url}}">
             <h3>{{crystaltype.name}}</h3>
