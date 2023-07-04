@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView,CreateView,DetailView,UpdateView,DeleteView,RedirectView
-from main_app.models import CrystalType,Crystal
+from main_app.models import CrystalType,Crystal,Collection
 
 # Create your views here.
 
@@ -71,5 +71,37 @@ class CrystalDeleteView(DeleteView):
     model = Crystal
     template_name = "crystal/crystal_delete.html"
     success_url="/crystals"
+    
+    
+class CollectionListView(ListView):
+    model = Collection
+    template_name = "collection/collection_list.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["collections"] = Collection.objects.all()
+        return context
+    
+class CollectionCreateView(CreateView):
+    model = Collection
+    fields=['title','crystals','bio',]
+    template_name = "collection/collection_create.html"
+    
+    
+class CollectionDetailView(DetailView):
+    model = Collection
+    template_name = "collection/collection_detail.html"
+    
+    
+class CollectionUpdateView(UpdateView):
+    model = Collection
+    fields=['title','crystals','bio',]
+    template_name = "collection/collection_update.html"
+    
+    
+class CollectionDeleteView(DeleteView):
+    model = Collection
+    template_name = "collection/collection_delete.html"
+    success_url="/collections"
 
 
