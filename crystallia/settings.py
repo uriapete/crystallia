@@ -15,6 +15,7 @@ import environ
 environ.Env()
 environ.Env.read_env()
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9k01tqtm3=j+wsdh(64t^j#6se#sjbsp94qpe)9s+a4t%7%8$5'
+SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-9k01tqtm3=j+wsdh(64t^j#6se#sjbsp94qpe)9s+a4t%7%8$5')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
@@ -82,11 +83,29 @@ WSGI_APPLICATION = 'crystallia.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
+database={}
+
+if DEBUG:
+    database={
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'crystallia',
     }
+else:
+    database=dj_database_url.config(
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
+
+DATABASES = {
+    'default':database
+    #   'default': dj_database_url.config(
+    #     conn_max_age=600,
+    #     conn_health_checks=True,
+    # ),
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'crystallia',
+    # }
 }
 
 
@@ -125,6 +144,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'main_app/static')]
+
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
