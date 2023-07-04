@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path("",view=views.Home.as_view(),name='home'),
     path("crystal_types/",view=views.CrystalTypeListView.as_view(),name="crystal_type_list"),
     path("crystal_types/add/",view=views.CrystalTypeCreateView.as_view(),name="crystal_type_create"),
     path("crystal_types/<int:pk>/",view=views.CrystalTypeDetailView.as_view(),name="crystal_type_detail"),

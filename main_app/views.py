@@ -1,8 +1,13 @@
 from django.shortcuts import render
-from django.views.generic import ListView,CreateView,DetailView,UpdateView,DeleteView
+from django.views.generic import ListView,CreateView,DetailView,UpdateView,DeleteView,RedirectView
 from main_app.models import CrystalType
 
 # Create your views here.
+
+class Home(RedirectView):
+    query_string=True
+    pattern_name="crystal_type_list"
+
 class CrystalTypeListView(ListView):
     model = CrystalType
     template_name = "crystal_type/crystal_type_list.html"
