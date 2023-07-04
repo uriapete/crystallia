@@ -46,6 +46,7 @@ class Collection(models.Model):
 
     title=models.CharField(max_length=500)
     crystals=models.ManyToManyField(Crystal)
+    bio=models.TextField(max_length=5000,blank=True,null=True)
     added_on=models.DateTimeField(auto_now_add=True)
 
     class Meta:
