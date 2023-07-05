@@ -9,26 +9,45 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'crystal_type_list' %}">All crystal types</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'crystal_type_create' %}">Add a crystal type</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'crystal_list' %}">All crystals</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'crystal_create' %}">Add a crystal</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'collection_list' %}">All collections</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'collection_create' %}">Create a collection</a>
-            </li>
-        </ul>
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Crystal Types</a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a class="dropdown-item" href="{% url 'crystal_type_list' %}">All crystal types</a>
+                            </li>
+                            <li class="">
+                                <a class="dropdown-item" href="{% url 'crystal_type_create' %}">Add a crystal type</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Crystals</a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'crystal_list' %}">All crystals</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'crystal_create' %}">Add a crystal</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Collections</a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'collection_list' %}">All collections</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'collection_create' %}">Create a collection</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
     {% block content %}{% endblock content %}
 </body>
