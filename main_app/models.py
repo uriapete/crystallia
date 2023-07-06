@@ -5,7 +5,7 @@ from django.urls import reverse
 class CrystalType(models.Model):
 
     name=models.CharField(max_length=250)
-    mohs_hardness=models.DecimalField(max_digits=3,decimal_places=2,blank=True,null=True)
+    mohs_hardness=models.DecimalField(max_digits=4,decimal_places=2,blank=True,null=True)
     usual_color=models.CharField(max_length=250,blank=True,null=True)
     img=models.CharField(max_length=5000,blank=True,null=True)
     bio=models.TextField(max_length=5000,blank=True,null=True)
